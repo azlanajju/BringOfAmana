@@ -39,7 +39,7 @@ require __DIR__ . '/includes/header.php';
 <div class="toolbar" style="margin-bottom: 1.5rem;">
   <div></div>
   <div style="display: flex; gap: 0.5rem;">
-    <a href="../create.php" class="btn">Add admin</a>
+    <a href="admin-form.php" class="btn">Add admin</a>
     <a href="investor-form.php" class="btn btn-outline">Add investor</a>
   </div>
 </div>
@@ -60,6 +60,7 @@ require __DIR__ . '/includes/header.php';
           <th>Status</th>
           <th>Last login</th>
           <th>Created</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -82,6 +83,9 @@ require __DIR__ . '/includes/header.php';
             <td><span class="badge badge-<?= $admin['status'] === 'active' ? 'active' : 'inactive' ?>"><?= htmlspecialchars($admin['status']) ?></span></td>
             <td><?= $admin['last_login_at'] ? date('M j, Y H:i', strtotime($admin['last_login_at'])) : 'Never' ?></td>
             <td><?= date('M j, Y', strtotime($admin['created_at'])) ?></td>
+            <td>
+              <a href="admin-form.php?id=<?= (int) $admin['id'] ?>" class="btn btn-sm btn-outline">Edit</a>
+            </td>
           </tr>
         <?php endforeach; ?>
       </tbody>
