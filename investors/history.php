@@ -25,12 +25,12 @@ require __DIR__ . '/includes/header.php';
     <h1 class="page-title">Investment History</h1>
     <p class="page-subtitle">All your investment submissions</p>
   </div>
-  <a href="<?= $base ?>/investors/submit.php" class="btn btn-outline">Submit Investment</a>
+  <a href="submit.php" class="btn btn-outline">Submit Investment</a>
 </div>
 
 <div class="card">
   <?php if (empty($investments)): ?>
-    <p class="empty-state">No investments yet. <a href="<?= $base ?>/investors/submit.php">Submit your first investment</a>.</p>
+    <p class="empty-state">No investments yet. <a href="submit.php">Submit your first investment</a>.</p>
   <?php else: ?>
     <div class="table-responsive">
       <table>
@@ -63,7 +63,7 @@ require __DIR__ . '/includes/header.php';
               <td><?= !empty($inv['admin_remark']) ? htmlspecialchars($inv['admin_remark']) : '—' ?></td>
               <td>
                 <?php if (!empty($inv['payment_proof_path'])):
-                  $proofUrl = $base . '/' . htmlspecialchars($inv['payment_proof_path']);
+                  $proofUrl = '../' . htmlspecialchars($inv['payment_proof_path']);
                   $isImage = preg_match('/\.(jpg|jpeg|png|gif|webp)$/i', $inv['payment_proof_path']);
                   $isPdf = preg_match('/\.pdf$/i', $inv['payment_proof_path']);
                 ?>

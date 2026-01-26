@@ -9,7 +9,7 @@ $base = rtrim(dirname(dirname($_SERVER['SCRIPT_NAME'])), '/\\');
 $base = $base ?: '/brightOfAmana';
 
 if (empty($_SESSION['user_id']) || ($_SESSION['user_role'] ?? '') !== 'investor') {
-    header('Location: ' . $base . '/login/');
+    header('Location: ../../login/');
     exit;
 }
 
@@ -27,6 +27,6 @@ $stmt->execute([$_SESSION['user_id']]);
 $investor = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$investor) {
-    header('Location: ' . $base . '/login/logout.php');
+    header('Location: ../../login/logout.php');
     exit;
 }

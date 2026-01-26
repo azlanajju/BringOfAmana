@@ -3,10 +3,10 @@
  * Bright of Amana – Database connection
  * Adjust host, user, password for your environment.
  */
-$db_host = '127.0.0.1';
-$db_name = 'bright_of_amana';
-$db_user = 'root';
-$db_pass = '';
+$db_host = '193.203.184.167';
+$db_name = 'u593219986_boa_db';
+$db_user = 'u593219986_boa_user';
+$db_pass = 'T2qGb1&N';
 
 try {
     $pdo = new PDO(

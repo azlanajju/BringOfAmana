@@ -305,15 +305,15 @@ header('Content-Type: text/html; charset=utf-8');
 <body>
   <header>
     <nav class="container">
-      <a href="<?= htmlspecialchars($base) ?>/" class="logo">
-        <img src="<?= htmlspecialchars($base) ?>/assets/BABG_Logo.png" alt="Bright of Amana">
+        <a href="./" class="logo">
+        <img src="assets/BABG_Logo.png" alt="Bright of Amana">
         <div>
           <span class="logo-text">Bright of Amana</span>
           <span class="logo-tag">Business Group</span>
         </div>
       </a>
       <div class="nav-links">
-        <a href="<?= htmlspecialchars($base) ?>/login/" class="btn-nav">Sign In</a>
+        <a href="login/" class="btn-nav">Sign In</a>
       </div>
     </nav>
   </header>
@@ -335,7 +335,7 @@ header('Content-Type: text/html; charset=utf-8');
               <strong>Thank you for your interest.</strong>
               We’ve received your request and will contact you shortly.
             </div>
-            <a href="<?= htmlspecialchars($base) ?>/" class="back-link">← Back to home</a>
+            <a href="./" class="back-link">← Back to home</a>
           <?php else: ?>
             <?php if ($error): ?>
               <div class="error-msg" role="alert"><?= htmlspecialchars($error) ?></div>
@@ -373,7 +373,7 @@ header('Content-Type: text/html; charset=utf-8');
           <a href="tel:+919964396818">+91 99643 96818</a>
           <div class="divider"></div>
           <p>Already have an account?</p>
-          <a href="<?= htmlspecialchars($base) ?>/login/" class="back-link">Sign in →</a>
+          <a href="login/" class="back-link">Sign in →</a>
         </div>
       </div>
     </div>
@@ -381,7 +381,7 @@ header('Content-Type: text/html; charset=utf-8');
 
   <footer>
     <div class="container">
-      <a href="<?= htmlspecialchars($base) ?>/">Bright of Amana Business Group</a>
+      <a href="./">Bright of Amana Business Group</a>
       <p>&copy; <?= date('Y') ?> Bright of Amana Business Group. All rights reserved.</p>
     </div>
   </footer>

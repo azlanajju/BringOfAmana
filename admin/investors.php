@@ -22,12 +22,12 @@ require __DIR__ . '/includes/header.php';
 
 <div class="toolbar">
   <div></div>
-  <a href="<?= $base ?>/admin/investor-form.php" class="btn">Add investor</a>
+  <a href="investor-form.php" class="btn">Add investor</a>
 </div>
 
 <div class="card">
   <?php if (empty($investors)): ?>
-    <p style="color:#718096;">No investors yet. <a href="<?= $base ?>/admin/investor-form.php">Add one</a>.</p>
+    <p style="color:#718096;">No investors yet. <a href="investor-form.php">Add one</a>.</p>
   <?php else: ?>
     <div class="table-responsive">
     <table>
@@ -51,7 +51,7 @@ require __DIR__ . '/includes/header.php';
             <td><?= htmlspecialchars($inv['phone'] ?? '—') ?></td>
             <td><?= date('M j, Y', strtotime($inv['join_date'])) ?></td>
             <td><span class="badge badge-<?= $inv['status'] === 'active' ? 'active' : 'inactive' ?>"><?= htmlspecialchars($inv['status']) ?></span></td>
-            <td><a href="<?= $base ?>/admin/investor-form.php?id=<?= (int) $inv['id'] ?>" class="btn btn-sm btn-outline">Edit</a></td>
+            <td><a href="investor-form.php?id=<?= (int) $inv['id'] ?>" class="btn btn-sm btn-outline">Edit</a></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

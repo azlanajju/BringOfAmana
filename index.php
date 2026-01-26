@@ -85,7 +85,7 @@ $base = $base ?: '/brightOfAmana';
       color: #fff;
       padding: clamp(4rem, 10vw, 7rem) 1.5rem;
       text-align: center;
-      background: url('<?= $base ?>/assets/bgImage.png') center / cover no-repeat;
+      background: url('assets/bgImage.png') center / cover no-repeat;
     }
     .hero::before {
       content: '';
@@ -394,25 +394,25 @@ $base = $base ?: '/brightOfAmana';
 <body>
   <header>
     <nav class="container">
-      <a href="<?= htmlspecialchars($base) ?>/" class="logo">
-        <img src="<?= htmlspecialchars($base) ?>/assets/BABG_Logo.png" alt="Bright of Amana">
+      <a href="./" class="logo">
+        <img src="assets/BABG_Logo.png" alt="Bright of Amana">
         <div>
           <span class="logo-text">Bright of Amana</span>
           <span class="logo-tag">Business Group</span>
         </div>
       </a>
       <div class="nav-links">
-        <a href="<?= htmlspecialchars($base) ?>/login/" class="btn-nav">Sign In</a>
+        <a href="login/" class="btn-nav">Sign In</a>
       </div>
     </nav>
   </header>
 
   <section class="hero">
     <div class="hero-content">
-      <img src="<?= htmlspecialchars($base) ?>/assets/BABG_Logo.png" alt="" class="hero-logo" width="100" height="auto">
+      <img src="assets/BABG_Logo.png" alt="" class="hero-logo" width="100" height="auto">
       <h1>Invest in Real Estate. Grow Your Wealth.</h1>
       <p>Bright of Amana Business Group helps you invest in property, track your portfolio, and build long-term wealth with a trusted, transparent platform.</p>
-      <a href="<?= htmlspecialchars($base) ?>/login/" class="btn-hero">Sign In to Your Account</a>
+      <a href="login/" class="btn-hero">Sign In to Your Account</a>
       <a href="#about" class="hero-scroll">
         <span class="hero-scroll-icon" aria-hidden="true"></span>
         <span>Scroll to learn more</span>
@@ -481,7 +481,7 @@ $base = $base ?: '/brightOfAmana';
     <div class="container">
       <h2>Start Your Investment Journey Today</h2>
       <p>Join Bright of Amana and take control of your portfolio with our simple, powerful platform.</p>
-      <a href="<?= htmlspecialchars($base) ?>/request-investor.php" class="btn-cta">Get Started Now</a>
+      <a href="request-investor.php" class="btn-cta">Get Started Now</a>
     </div>
   </section>
 
@@ -489,15 +489,15 @@ $base = $base ?: '/brightOfAmana';
     <div class="container">
       <div class="footer-content">
         <div class="footer-section footer-brand">
-          <a href="<?= htmlspecialchars($base) ?>/" class="logo">
-            <img src="<?= htmlspecialchars($base) ?>/assets/BABG_Logo.png" alt="Bright of Amana">
+          <a href="./" class="logo">
+            <img src="assets/BABG_Logo.png" alt="Bright of Amana">
           </a>
           <p>Bright of Amana Business Group — Investment Management & Real Estate.</p>
         </div>
         <div class="footer-section">
           <h4>Quick Links</h4>
-          <a href="<?= htmlspecialchars($base) ?>/">Home</a>
-          <a href="<?= htmlspecialchars($base) ?>/login/">Sign In</a>
+          <a href="./">Home</a>
+          <a href="login/">Sign In</a>
         </div>
         <div class="footer-section footer-contact">
           <h4>Contact</h4>

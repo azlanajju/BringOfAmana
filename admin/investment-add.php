@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     VALUES (?, ?, ?, ?, ?, ?, 'pending')
                 ")->execute([$investor_id, $month, $year, (float) $amount, $payment_mode ?: null, $transaction_ref ?: null]);
                 $newId = (int) $pdo->lastInsertId();
-                header('Location: ' . $base . '/admin/investment-view.php?id=' . $newId . '&done=1');
+                header('Location: investment-view.php?id=' . $newId . '&done=1');
                 exit;
             }
         } catch (PDOException $e) {
@@ -63,8 +63,8 @@ require __DIR__ . '/includes/header.php';
 
 <?php if (empty($investorsList)): ?>
   <div class="card">
-    <p style="color:#718096;">No investors yet. <a href="<?= $base ?>/admin/investors.php">Add an investor</a> first.</p>
-    <p><a href="<?= $base ?>/admin/investments.php" class="btn btn-outline">← Back to list</a></p>
+    <p style="color:#718096;">No investors yet. <a href="investors.php">Add an investor</a> first.</p>
+    <p><a href="investments.php" class="btn btn-outline">← Back to list</a></p>
   </div>
 <?php else: ?>
 <div class="card">
@@ -107,7 +107,7 @@ require __DIR__ . '/includes/header.php';
     </div>
     <div class="form-group">
       <button type="submit" class="btn">Create investment</button>
-      <a href="<?= $base ?>/admin/investments.php" class="btn btn-outline" style="margin-left:0.5rem;">Cancel</a>
+      <a href="investments.php" class="btn btn-outline" style="margin-left:0.5rem;">Cancel</a>
     </div>
   </form>
 </div>

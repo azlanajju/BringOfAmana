@@ -6,7 +6,7 @@ require __DIR__ . '/includes/init.php';
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 if (!$id) {
-    header('Location: ' . $base . '/admin/investments.php');
+    header('Location: investments.php');
     exit;
 }
 
@@ -22,7 +22,7 @@ $stmt->execute([$id]);
 $inv = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$inv) {
-    header('Location: ' . $base . '/admin/investments.php');
+    header('Location: investments.php');
     exit;
 }
 
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 255),
             ]);
             $pdo->commit();
-            header('Location: ' . $base . '/admin/investment-view.php?id=' . $id . '&done=1');
+            header('Location: investment-view.php?id=' . $id . '&done=1');
             exit;
         } catch (PDOException $e) {
             $pdo->rollBack();
@@ -103,7 +103,7 @@ require __DIR__ . '/includes/header.php';
     <tr><th>Payment proof</th>
         <td>
           <?php if (!empty($inv['payment_proof_path'])): 
-            $proofUrl = $base . '/' . htmlspecialchars($inv['payment_proof_path']);
+            $proofUrl = '../' . htmlspecialchars($inv['payment_proof_path']);
             $isImage = preg_match('/\.(jpg|jpeg|png|gif|webp)$/i', $inv['payment_proof_path']);
             $isPdf = preg_match('/\.pdf$/i', $inv['payment_proof_path']);
           ?>
@@ -135,12 +135,12 @@ require __DIR__ . '/includes/header.php';
     <div class="form-group form-actions">
       <button type="submit" name="action" value="approved" class="btn btn-success">Approve</button>
       <button type="submit" name="action" value="rejected" class="btn btn-danger">Reject</button>
-      <a href="<?= $base ?>/admin/investments.php" class="btn btn-outline">Back to list</a>
+      <a href="investments.php" class="btn btn-outline">Back to list</a>
     </div>
   </form>
 </div>
 <?php else: ?>
-  <p><a href="<?= $base ?>/admin/investments.php" class="btn btn-outline">← Back to list</a></p>
+  <p><a href="investments.php" class="btn btn-outline">← Back to list</a></p>
 <?php endif; ?>
 
 <!-- Proof Modal -->

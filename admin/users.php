@@ -39,8 +39,8 @@ require __DIR__ . '/includes/header.php';
 <div class="toolbar" style="margin-bottom: 1.5rem;">
   <div></div>
   <div style="display: flex; gap: 0.5rem;">
-    <a href="<?= $base ?>/create.php" class="btn">Add admin</a>
-    <a href="<?= $base ?>/admin/investor-form.php" class="btn btn-outline">Add investor</a>
+    <a href="../create.php" class="btn">Add admin</a>
+    <a href="investor-form.php" class="btn btn-outline">Add investor</a>
   </div>
 </div>
 
@@ -123,7 +123,7 @@ require __DIR__ . '/includes/header.php';
             <td><?= date('M j, Y', strtotime($inv['created_at'])) ?></td>
             <td>
               <?php if (!empty($inv['investor_id'])): ?>
-                <a href="<?= $base ?>/admin/investor-form.php?id=<?= (int) $inv['investor_id'] ?>" class="btn btn-sm btn-outline">Edit</a>
+                <a href="investor-form.php?id=<?= (int) $inv['investor_id'] ?>" class="btn btn-sm btn-outline">Edit</a>
               <?php endif; ?>
             </td>
           </tr>

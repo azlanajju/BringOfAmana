@@ -56,7 +56,7 @@ require __DIR__ . '/includes/header.php';
     <h1 class="page-title">Investments</h1>
     <p class="page-subtitle">View and manage all investment submissions from investors.</p>
   </div>
-  <a href="<?= $base ?>/admin/investment-add.php" class="btn">+ Add Investment</a>
+  <a href="investment-add.php" class="btn">+ Add Investment</a>
 </div>
 
 <div class="card">
@@ -97,7 +97,7 @@ require __DIR__ . '/includes/header.php';
     </select>
     <button type="submit" class="btn btn-sm">Apply Filters</button>
     <?php if ($month || $year || $investorId || $statusFilter): ?>
-      <a href="<?= $base ?>/admin/investments.php" class="btn btn-sm btn-outline">Clear</a>
+      <a href="investments.php" class="btn btn-sm btn-outline">Clear</a>
     <?php endif; ?>
   </form>
 </div>
@@ -116,7 +116,7 @@ require __DIR__ . '/includes/header.php';
   <?php if (empty($investments)): ?>
     <div style="text-align:center; padding:3rem 1rem; color:var(--text-muted);">
       <p style="margin:0; font-size:1rem;">No investments match your filters.</p>
-      <p style="margin:0.5rem 0 0; font-size:0.875rem;">Try adjusting your filter criteria or <a href="<?= $base ?>/admin/investment-add.php" style="color:var(--green); text-decoration:none;">add a new investment</a>.</p>
+      <p style="margin:0.5rem 0 0; font-size:0.875rem;">Try adjusting your filter criteria or <a href="investment-add.php" style="color:var(--green); text-decoration:none;">add a new investment</a>.</p>
     </div>
   <?php else: ?>
     <div class="table-responsive">
@@ -146,7 +146,7 @@ require __DIR__ . '/includes/header.php';
               <td><?= htmlspecialchars($r['payment_mode'] ?? '—') ?></td>
               <td><span class="badge badge-<?= $statusClass ?>"><?= htmlspecialchars($r['status']) ?></span></td>
               <td style="color:var(--text-muted); font-size:0.875rem;"><?= date('M j, Y H:i', strtotime($r['submitted_at'])) ?></td>
-              <td><a href="<?= $base ?>/admin/investment-view.php?id=<?= (int) $r['id'] ?>" class="btn btn-sm btn-outline">View</a></td>
+              <td><a href="investment-view.php?id=<?= (int) $r['id'] ?>" class="btn btn-sm btn-outline">View</a></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

@@ -54,7 +54,7 @@ require __DIR__ . '/includes/header.php';
     <h1 class="page-title">Dashboard</h1>
     <p class="page-subtitle">Overview of your investments</p>
   </div>
-  <a href="<?= $base ?>/investors/submit.php" class="btn">Submit New Investment</a>
+  <a href="submit.php" class="btn">Submit New Investment</a>
 </div>
 
 <div class="stats">
@@ -89,10 +89,10 @@ require __DIR__ . '/includes/header.php';
 <div class="card">
   <div class="toolbar">
     <h2>Recent Investments</h2>
-    <a href="<?= $base ?>/investors/submit.php" class="btn btn-sm btn-outline">Submit Investment</a>
+    <a href="submit.php" class="btn btn-sm btn-outline">Submit Investment</a>
   </div>
   <?php if (empty($recent)): ?>
-    <p class="empty-state">No investments yet. <a href="<?= $base ?>/investors/submit.php">Submit your first investment</a>.</p>
+    <p class="empty-state">No investments yet. <a href="submit.php">Submit your first investment</a>.</p>
   <?php else: ?>
     <div class="table-responsive">
     <table>
@@ -123,7 +123,7 @@ require __DIR__ . '/includes/header.php';
       </tbody>
     </table>
     </div>
-    <p style="margin-top:1.25rem;"><a href="<?= $base ?>/investors/history.php" class="btn btn-sm btn-outline">View all investments →</a></p>
+    <p style="margin-top:1.25rem;"><a href="history.php" class="btn btn-sm btn-outline">View all investments →</a></p>
   <?php endif; ?>
 </div>
 

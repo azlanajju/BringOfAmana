@@ -171,7 +171,7 @@ require __DIR__ . '/includes/header.php';
 <div class="card">
   <div class="toolbar">
     <h2 style="margin:0;">Recent Investments</h2>
-    <a href="<?= $base ?>/admin/investments.php" class="btn">View All</a>
+    <a href="investments.php" class="btn">View All</a>
   </div>
   <?php if (empty($recent)): ?>
     <p style="color:var(--text-muted);">No investments yet.</p>
@@ -201,7 +201,7 @@ require __DIR__ . '/includes/header.php';
             <td><?= $monthName ?> <?= $r['year'] ?></td>
             <td><span class="badge badge-<?= $statusClass ?>"><?= htmlspecialchars($r['status']) ?></span></td>
             <td><?= date('M j, Y H:i', strtotime($r['submitted_at'])) ?></td>
-            <td><a href="<?= $base ?>/admin/investment-view.php?id=<?= (int) $r['id'] ?>" class="btn btn-sm btn-outline">View</a></td>
+            <td><a href="investment-view.php?id=<?= (int) $r['id'] ?>" class="btn btn-sm btn-outline">View</a></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

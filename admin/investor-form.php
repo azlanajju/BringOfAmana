@@ -24,7 +24,7 @@ if ($isEdit) {
     $stmt->execute([$id]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     if (!$row) {
-        header('Location: ' . $base . '/admin/investors.php');
+        header('Location: investors.php');
         exit;
     }
     $name = $row['name'];
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $success = 'Investor created. They can sign in at the login page.';
                     }
                     if ($success && !$isEdit) {
-                        header('Location: ' . $base . '/admin/investors.php?created=1');
+                        header('Location: investors.php?created=1');
                         exit;
                     }
                 }
@@ -182,7 +182,7 @@ require __DIR__ . '/includes/header.php';
     <?php endif; ?>
     <div class="form-group">
       <button type="submit" class="btn"><?= $isEdit ? 'Update' : 'Create' ?></button>
-      <a href="<?= $base ?>/admin/investors.php" class="btn btn-outline" style="margin-left:0.5rem;">Cancel</a>
+      <a href="investors.php" class="btn btn-outline" style="margin-left:0.5rem;">Cancel</a>
     </div>
   </form>
 </div>

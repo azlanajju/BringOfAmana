@@ -95,7 +95,7 @@ require __DIR__ . '/includes/header.php';
     <h1 class="page-title">Submit Investment</h1>
     <p class="page-subtitle">Add a new monthly investment</p>
   </div>
-  <a href="<?= $base ?>/investors/" class="btn btn-outline">← Dashboard</a>
+  <a href="./" class="btn btn-outline">← Dashboard</a>
 </div>
 
 <?php if ($error): ?>
@@ -142,7 +142,7 @@ require __DIR__ . '/includes/header.php';
     </div>
     <div class="form-group form-actions">
       <button type="submit" class="btn">Submit Investment</button>
-      <a href="<?= $base ?>/investors/" class="btn btn-outline">Cancel</a>
+      <a href="./" class="btn btn-outline">Cancel</a>
     </div>
   </form>
 </div>

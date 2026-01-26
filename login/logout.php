@@ -13,5 +13,5 @@ session_destroy();
 
 $base = rtrim(dirname(dirname($_SERVER['SCRIPT_NAME'])), '/\\');
 $base = $base ?: '/brightOfAmana';
-header('Location: ' . $base . '/login/');
+header('Location: index.php');
 exit;

@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->execute([$user['id']]);
 
                 $isAdmin = in_array($user['role'], ['super_admin', 'admin', 'staff'], true);
-                $redirect = $isAdmin ? $base . '/admin/' : $base . '/investors/';
+                $redirect = $isAdmin ? '../admin/' : '../investors/';
                 header('Location: ' . $redirect);
                 exit;
             }
@@ -233,7 +233,7 @@ header('Content-Type: text/html; charset=utf-8');
   </style>
 </head>
 <body>
-  <a href="<?= htmlspecialchars($base) ?>/" class="back-link" aria-label="Back to home">
+  <a href="../" class="back-link" aria-label="Back to home">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
     </svg>
@@ -243,7 +243,7 @@ header('Content-Type: text/html; charset=utf-8');
   <div class="wrap">
     <div class="card">
       <div class="card-logo">
-        <img src="<?= htmlspecialchars($base) ?>/assets/BABG_Logo.png" alt="Bright of Amana" width="72" height="auto">
+        <img src="../assets/BABG_Logo.png" alt="Bright of Amana" width="72" height="auto">
       </div>
       <div class="card-header">
         <h1>Sign in</h1>
@@ -274,7 +274,7 @@ header('Content-Type: text/html; charset=utf-8');
       </div>
     </div>
 
-    <a href="<?= htmlspecialchars($base) ?>/" class="home-link">← Bright of Amana Business Group</a>
+    <a href="../" class="home-link">← Bright of Amana Business Group</a>
   </div>
 </body>
 </html>

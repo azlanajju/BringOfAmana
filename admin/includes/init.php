@@ -9,7 +9,7 @@ $base = rtrim(dirname(dirname($_SERVER['SCRIPT_NAME'])), '/\\');
 $base = $base ?: '/brightOfAmana';
 
 if (empty($_SESSION['user_id']) || !in_array($_SESSION['user_role'] ?? '', ['super_admin', 'admin', 'staff'], true)) {
-    header('Location: ' . $base . '/login/');
+    header('Location: ../login/');
     exit;
 }
 
