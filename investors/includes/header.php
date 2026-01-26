@@ -346,19 +346,19 @@ $investorCode = htmlspecialchars($investor['investor_code'] ?? '');
       <div class="sidebar-section">
         <div class="sidebar-section-label">Menu</div>
         <nav class="sidebar-nav">
-          <a href="../" class="<?= $page === 'dashboard' ? 'active' : '' ?>">
+          <a href="index.php" class="<?= $page === 'dashboard' ? 'active' : '' ?>">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
             Dashboard
           </a>
-          <a href="../submit.php" class="<?= $page === 'submit' ? 'active' : '' ?>">
+          <a href="submit.php" class="<?= $page === 'submit' ? 'active' : '' ?>">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             Submit Investment
           </a>
-          <a href="../history.php" class="<?= $page === 'history' ? 'active' : '' ?>">
+          <a href="history.php" class="<?= $page === 'history' ? 'active' : '' ?>">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             Investment History
           </a>
-          <a href="../profile.php" class="<?= $page === 'profile' ? 'active' : '' ?>">
+          <a href="profile.php" class="<?= $page === 'profile' ? 'active' : '' ?>">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             Profile
           </a>
