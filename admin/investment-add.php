@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $amount = trim($_POST['amount'] ?? '');
     $payment_mode = trim($_POST['payment_mode'] ?? '');
     $transaction_ref = trim($_POST['transaction_ref'] ?? '');
+    $proofFile = $_FILES['payment_proof'] ?? null;
 
     if (!$investor_id || $month < 1 || $month > 12 || $year < 2000 || $year > 2100 || !$amount) {
         $error = 'Investor, month, year and amount are required.';
@@ -36,13 +37,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($stmt->fetch()) {
                 $error = 'An investment for this investor, month and year already exists.';
             } else {
-                $pdo->prepare("
-                    INSERT INTO investments (investor_id, month, year, amount, payment_mode, transaction_ref, status)
-                    VALUES (?, ?, ?, ?, ?, ?, 'pending')
-                ")->execute([$investor_id, $month, $year, (float) $amount, $payment_mode ?: null, $transaction_ref ?: null]);
-                $newId = (int) $pdo->lastInsertId();
-                header('Location: investment-view.php?id=' . $newId . '&done=1');
-                exit;
+                $proofPath = null;
+
+                // Handle file upload
+                if ($proofFile && $proofFile['error'] === UPLOAD_ERR_OK) {
+                    $allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'application/pdf'];
+                    $maxSize = 5 * 1024 * 1024;
+
+                    if (!in_array($proofFile['type'], $allowed)) {
+                        $error = 'Invalid file type. Allowed: JPG, PNG, GIF, WebP, PDF.';
+                    } elseif ($proofFile['size'] > $maxSize) {
+                        $error = 'File size must be less than 5MB.';
+                    } else {
+                        $ext = pathinfo($proofFile['name'], PATHINFO_EXTENSION);
+                        $filename = 'proof_' . $investor_id . '_' . $year . '_' . str_pad($month, 2, '0', STR_PAD_LEFT) . '_' . time() . '.' . $ext;
+                        $uploadDir = dirname(__DIR__) . '/uploads/proofs/';
+
+                        if (!is_dir($uploadDir)) {
+                            mkdir($uploadDir, 0755, true);
+                        }
+
+                        $targetPath = $uploadDir . $filename;
+                        if (move_uploaded_file($proofFile['tmp_name'], $targetPath)) {
+                            $proofPath = 'uploads/proofs/' . $filename;
+                        } else {
+                            $error = 'Failed to upload file. Please try again.';
+                        }
+                    }
+                }
+
+                if (!$error) {
+                    $pdo->prepare("
+                        INSERT INTO investments (investor_id, month, year, amount, payment_mode, transaction_ref, payment_proof_path, status)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')
+                    ")->execute([
+                        $investor_id, 
+                        $month, 
+                        $year, 
+                        (float) $amount, 
+                        $payment_mode ?: null, 
+                        $transaction_ref ?: null,
+                        $proofPath
+                    ]);
+                    $newId = (int) $pdo->lastInsertId();
+                    header('Location: investment-view.php?id=' . $newId . '&done=1');
+                    exit;
+                }
             }
         } catch (PDOException $e) {
             $error = 'Could not create investment. Please try again.';
@@ -68,7 +108,7 @@ require __DIR__ . '/includes/header.php';
   </div>
 <?php else: ?>
 <div class="card">
-  <form method="post" action="">
+  <form method="post" action="" enctype="multipart/form-data">
     <div class="form-group">
       <label for="investor_id">Investor *</label>
       <select id="investor_id" name="investor_id" required>
@@ -104,6 +144,11 @@ require __DIR__ . '/includes/header.php';
     <div class="form-group">
       <label for="transaction_ref">Transaction reference</label>
       <input type="text" id="transaction_ref" name="transaction_ref" value="<?= htmlspecialchars($transaction_ref) ?>" placeholder="Optional">
+    </div>
+    <div class="form-group">
+      <label for="payment_proof">Payment Proof (Optional)</label>
+      <input type="file" id="payment_proof" name="payment_proof" accept="image/*,.pdf">
+      <small>Max 5MB. Allowed: JPG, PNG, GIF, WebP, PDF</small>
     </div>
     <div class="form-group">
       <button type="submit" class="btn">Create investment</button>
