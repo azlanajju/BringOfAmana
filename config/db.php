@@ -4,8 +4,8 @@
  * Adjust host, user, password for your environment.
  */
 $db_host = '193.203.184.167';
-$db_name = 'u593219986_boa_db';
-$db_user = 'u593219986_boa_user';
+$db_name = 'u593219986_boa_dbnew';
+$db_user = 'u593219986_boa_usernew';
 $db_pass = 'T2qGb1&N';
 
 try {
