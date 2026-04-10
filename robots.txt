@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Private dashboard/auth areas
+Disallow: /admin/
+Disallow: /investors/
+Disallow: /login/
+
+# Important crawling hint
+Sitemap: https://brightofamana.com/sitemap.xml

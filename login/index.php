@@ -47,7 +47,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
         } catch (PDOException $e) {
-            $error = 'Unable to sign in. Please try again.';
+            // Keep user-facing message generic, but log root cause for debugging.
+            error_log(
+                sprintf(
+                    '[LOGIN_ERROR] email=%s ip=%s message=%s',
+                    $email,
+                    $_SERVER['REMOTE_ADDR'] ?? 'unknown',
+                    $e->getMessage()
+                )
+            );
+            $error = 'Unable to sign in right now (system error). Please try again.';
         }
     }
 }

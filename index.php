@@ -11,6 +11,30 @@ $base = $base ?: '/brightOfAmana';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bright of Amana Business Group – Real Estate Investment Made Simple</title>
+  <meta name="description" content="Bright of Amana Business Group is a trusted real estate investment company offering secure, transparent portfolio management and long-term wealth growth opportunities.">
+  <meta name="keywords" content="Bright of Amana, Bright of Amana Business Group, real estate investment, property investment, investment management, portfolio tracking">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://brightofamana.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bright of Amana Business Group – Real Estate Investment Made Simple">
+  <meta property="og:description" content="Secure and transparent real estate investment platform by Bright of Amana Business Group.">
+  <meta property="og:url" content="https://brightofamana.com/">
+  <meta property="og:image" content="https://brightofamana.com/assets/BABG_Logo.png">
+  <meta property="og:site_name" content="Bright of Amana Business Group">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bright of Amana Business Group – Real Estate Investment Made Simple">
+  <meta name="twitter:description" content="Invest in real estate with confidence through Bright of Amana Business Group.">
+  <meta name="twitter:image" content="https://brightofamana.com/assets/BABG_Logo.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Bright of Amana Business Group",
+    "url": "https://brightofamana.com/",
+    "logo": "https://brightofamana.com/assets/BABG_Logo.png",
+    "description": "Real estate investment and portfolio management services by Bright of Amana Business Group."
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
