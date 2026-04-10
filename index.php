@@ -25,6 +25,7 @@ $base = $base ?: '/brightOfAmana';
   <meta name="twitter:title" content="Bright of Amana Business Group – Real Estate Investment Made Simple">
   <meta name="twitter:description" content="Invest in real estate with confidence through Bright of Amana Business Group.">
   <meta name="twitter:image" content="https://brightofamana.com/assets/BABG_Logo.png">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

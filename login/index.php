@@ -69,6 +69,7 @@ header('Content-Type: text/html; charset=utf-8');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign in – Bright of Amana Business Group</title>
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
